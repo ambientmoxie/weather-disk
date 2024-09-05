@@ -1,0 +1,205 @@
+@import '../../../node_modules/modern-normalize/modern-normalize.css';
+
+:root {
+  color-scheme: light dark;
+  color: rgba(0, 0, 0, 0.87);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  letter-spacing: -1.5px;
+  line-height: 0.98;
+  position: relative;
+  width: 100vw;
+  height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  all: unset;
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  text-align: inherit;
+  line-height: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+button:focus {
+  outline: none;
+}
+
+input {
+  all: unset;
+  display: block;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  text-align: inherit;
+  line-height: inherit;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+input:focus {
+  outline: none; /* Removes default focus outline */
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  all: unset;
+  display: inline-block;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+}
+
+#backdrop {
+  --backdrop-blur: 100px;
+  --backdrop-sat: 900%;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(var(--backdrop-blur)) saturate(var(--backdrop-sat));
+  -webkit-backdrop-filter: blur(var(--backdrop-blur))
+    saturate(var(--backdrop-sat));
+  z-index: 2;
+}
+
+#cells-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100svh;
+  z-index: 1;
+
+  .cell {
+    position: absolute;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+  }
+}
+
+#conic-container {
+  width: 100vw;
+  height: 100svh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  mix-blend-mode: color-burn;
+}
+
+#overlay-text {
+  width: 100vw;
+  height: 100svh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  color: white;
+  z-index: 3;
+  scale: 0.98;
+  mix-blend-mode: difference;
+}
+
+#modal {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  padding: 1rem;
+  z-index: 10;
+  position: absolute;
+  #modal-container {
+    position: relative;
+    width: 100%;
+    max-width: 20rem;
+    height: 3rem;
+    display: flex;
+    gap: 1rem;
+
+    input {
+      border: none;
+      width: 100%;
+      height: 100%;
+      color: #7c7c7c;
+      padding: 1rem;
+      background-color: #ffffff;
+      letter-spacing: 0.05px;
+      border-radius: 10px;
+    }
+
+    button {
+      padding: 0;
+      height: 100%;
+      font-weight: 600;
+      letter-spacing: 0.05px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 1rem;
+    }
+  }
+  button#close-modal {
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    background-color: transparent;
+  }
+  button#submit:hover {
+    background-color: rgb(210, 210, 210);
+  }
+}
+
+#test-div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
